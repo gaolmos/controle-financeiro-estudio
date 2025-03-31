@@ -11,6 +11,8 @@ creds_dict = dict(st.secrets["gcp_service_account"])
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 
+# ✅ Este é o client do gspread
+client = gspread.authorize(creds)
 
 # Nome da planilha
 sheet_name = "Controle Financeiro Estúdio"
