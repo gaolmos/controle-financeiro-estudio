@@ -7,11 +7,10 @@ from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 
 # Lê as credenciais do Streamlit Secrets
-creds_dict = st.secrets["gcp_service_account"]
-creds_json = json.dumps(creds_dict)
+creds_dict = dict(st.secrets["gcp_service_account"])
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_dict(json.loads(creds_json), scope)
-client = gspread.authorize(creds)
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+
 
 # Nome da planilha
 sheet_name = "Controle Financeiro Estúdio"
