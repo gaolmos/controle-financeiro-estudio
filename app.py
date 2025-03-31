@@ -74,7 +74,7 @@ with st.form("nova_movimentacao"):
         nova_linha = [str(data), tipo, descricao, pagamento, valor]
         sheet.append_row(nova_linha)
         st.success("Movimentação registrada com sucesso! ✅")
-        st.experimental_rerun()
+        st.rerun()
 
 # Histórico
 st.subheader("📜 Histórico de movimentações")
